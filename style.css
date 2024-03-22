@@ -1,0 +1,188 @@
+/* Estilo para telas maiores (desktop) */
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+header h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #ecf0f1;
+}
+
+header p {
+    font-size: 16px;
+    color: #bdc3c7;
+}
+
+#animeCatalog {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.animeCard {
+    width: 300px;
+    height: 450px; /* Aumentei a altura para acomodar novos elementos */
+    margin: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('img/placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border 0.3s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.animeCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    background-size: 120% 120%;
+    border: 2px solid #3498db;
+}
+
+.animeOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    border-radius: 15px;
+    z-index: 2;
+}
+
+.animeCard:hover .animeOverlay {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.animeOverlay h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #ecf0f1;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.animeOverlay p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 20px;
+    color: #ecf0f1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.animeOverlay .details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.animeOverlay .details span {
+    font-size: 14px;
+    color: #bdc3c7;
+}
+
+.animeOverlay a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.animeOverlay a:hover {
+    background-color: #2980b9;
+}
+
+.playIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 40px;
+    opacity: 0.7;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.animeCard:hover .playIcon {
+    opacity: 0.9;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: #1f2c43;
+    border-radius: 0 0 15px 15px;
+}
+
+footer p {
+    font-size: 14px;
+    color: #bdc3c7;
+}
+
+/* Estilo para telas menores (dispositivos móveis) */
+@media screen and (max-width: 767px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    header h2 {
+        font-size: 18px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .animeCard {
+        width: calc(100% - 40px);
+        max-width: 100%;
+        margin: 20px 0;
+    }
+}
